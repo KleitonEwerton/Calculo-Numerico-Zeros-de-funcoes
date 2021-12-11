@@ -1,11 +1,3 @@
-
-#Onde f é uma função definida inline no Octave, g é uma função definida inline no Octave que computa a derivada da função f,
-#x0 é a aproximação inicial para um zero de f, tol é a tolerância para o criterio de parada 
-#e N é o limite para a quantidade de passos. Sua implementação deve retornar a aproximação para a raiz, x,
-#o valor da função em x, f_x, a quantidade de iterações necessária até a convergência n, e erro em cada iteração, 
-#res.  Teste considerando uma tolerância de 10E-06.
-
-
 function [x, n, res] = newton ( f , g ,x0, tol, N )
   
   x = "Raiz não encontrada";                            #Inicializando

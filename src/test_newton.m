@@ -1,6 +1,3 @@
-#Escreva um script test_newton.m para determinar os zeros da função abaixo pelo método de newton. 
-#o script deve gerar o  gráfico (iters x res) para cada uma dessas funções:
-
 while(true)                                #Loop do menu de seleção da equação
 
   f1 = "cos(x)"                            #em [0, 2];   

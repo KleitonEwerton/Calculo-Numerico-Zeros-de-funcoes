@@ -1,6 +1,3 @@
-#Escreva o script test_bissec.m  para testar sua implementação nas situações abaixo, 
-#usando tol = 10e-6. O script também deve plotar os gráficos de cada uma das funções abaixo.
-
 while(true)                                                   #Loop para seleção da função para o teste
 
   f1 = "cos(x)"                                               #em [0, 2]; 
