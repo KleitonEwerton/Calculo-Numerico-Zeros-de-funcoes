@@ -1,3 +1,6 @@
+#f é uma função que deve ser passada como uma string ex: "cos(x)"
+#a e b são pontos no eixo-x
+#tol é a tolerância 
 function x = bissec(f, a, b, tol)
  
  funcao = inline(f);                                    #Transforma a string ,pasada em f, em uma função inline
@@ -8,36 +11,40 @@ function x = bissec(f, a, b, tol)
                                                         #Porém para algumas equações isso pode resultar em uma demora na conclusão do algoritmo
   if(funcao(a)*funcao(b) > 0)                           #Condição de existência 
                     
-      printf("Intervalo [%.2f, %.2f] não possui raizes segundo o Teorema 1", a, b)
+      printf("Intervalo [%.2f, %.2f] não possui raizes segundo o Teorema 1", a, b);
       
   else    
-    printf("\n__________________________________\n\n")   #Apenas um print
+    printf("\n__________________________________\n\n");  #Apenas um print
     res = 999999999;                                     #Para o criterio de parada
     
     while(res > tol && k < kLimite)                      #Condição limite para apenas evitar a demora
       
-      k = k + 1                                          #Incremento do contador
+      k = k + 1 ;                                        #Incremento do contador
    
-      estimativa_x = (a + b)/2                           #x estimado pela metade da soma de a e b
+      estimativa_x = (a + b)/2;                          #x estimado pela metade da soma de a e b
       
-      f_estimativa = funcao(estimativa_x)                #fx estimado na metade da soma de a e b
+      f_estimativa = funcao(estimativa_x);               #fx estimado na metade da soma de a e b
       
+      printf("Interacao:                %i\n", k);
+      printf("Estimatica de x:          %.12f\n",estimativa_x);
+      printf("Estimativa do f(x) atual: %.12f\n",f_estimativa); 
       
-      if(f_estimativa == 0)                               #Se f(x) = 0 então para pois a raiz foi encontrada
-        x = estimativa_x;                                 #x é ,aproximadamente, a metade da soma de a e b
-        printf("Fim do algoritmo, f(x) = 0 no ponto estimado atual")#Apenas um print
-        printf("\n__________________________________\n")   #Apenas um print
-        break                                              #Finaliza o loop
+      if(f_estimativa == 0)                              #Se f(x) = 0 então para pois a raiz foi encontrada
+        x = estimativa_x;                                #x é ,aproximadamente, a metade da soma de a e b
+        printf("Fim do algoritmo, f(x) = 0 no ponto estimado atual");#Apenas um print
+        printf("\n__________________________________\n"); #Apenas um print
+        break;                                            #Finaliza o loop
       endif
       
-      res = abs(b - a)                                     #Para o criterio de parada
+      res = abs(b - a);                                   #Para o criterio de parada
+      printf("|b - a| atual:            %.12f\n",res);
       
-      if(funcao(a)*funcao(estimativa_x) < 0)               #Verifica qual será o novo valor de a ou b
-        b = estimativa_x;                                  #b recebe a metade da soma de a e b
+      if(funcao(a)*funcao(estimativa_x) < 0)              #Verifica qual será o novo valor de a ou b
+        b = estimativa_x;                                 #b recebe a metade da soma de a e b
       else
-        a = estimativa_x;                                  #a recebe a metade da soma de a e b
+        a = estimativa_x;                                 #a recebe a metade da soma de a e b
       endif
-      printf("\n__________________________________\n")    #Apenas um print
+      printf("\n__________________________________\n");   #Apenas um print
     endwhile
 
   endif
